@@ -1,1 +1,18 @@
-INSERT INTO `tblusers` (`ID`, `username`, `firstname`, `lastname`, `email`, `mobile`, `pwd_hash`, `pwd-salt`, `role`, `created`, `status`) VALUES (NULL, 'admin', 'Vijay', 'Goswami', 'hexpit@gmail.com', '9045533427', '', '', '9', CURRENT_TIMESTAMP, '1');
+CREATE TABLE `admin`.`tblusers` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(20) NOT NULL,
+  `firstname` VARCHAR(50) NOT NULL,
+  `lastname` VARCHAR(50) NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `mobile` CHAR(10) NOT NULL,
+  `pwd_hash` VARCHAR(100) NOT NULL,
+  `pwd_salt` CHAR(20) NOT NULL,
+  `role` TINYINT(1) NOT NULL,
+  `created` DATETIME NOT NULL,
+  `status` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
+
+
+INSERT INTO `tblusers` (`ID`, `username`, `firstname`, `lastname`, `email`, `mobile`, `pwd_hash`, `pwd_salt`, `role`, `created`, `status`) VALUES (NULL, 'admin', 'Vijay', 'Goswami', 'hexpit@gmail.com', '9045533427', '', '', '9', CURRENT_TIMESTAMP, '1');

@@ -1,0 +1,1 @@
+INSERT INTO `tblusers` (`ID`, `username`, `firstname`, `lastname`, `email`, `mobile`, `pwd_hash`, `pwd-salt`, `role`, `created`, `status`) VALUES (NULL, 'admin', 'Vijay', 'Goswami', 'hexpit@gmail.com', '9045533427', '', '', '9', CURRENT_TIMESTAMP, '1');

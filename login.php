@@ -1,4 +1,4 @@
-<?php include 'logic.php'; ?>
+<?php include 'includes/logic.php'; ?>
 <?php if (@($_SESSION['login_user'])) {header('Location: index.php'); } ?>
 <!DOCTYPE html>
 <html>
@@ -30,21 +30,21 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
-	<?php 
-	
-			print_r($failmsgs);
-			echo $_SERVER['PHP_SELF'];
-		
-	?>
 <div class="login-box">
-  <div class="login-logo">
-    <a href="index.php"><img src="" alt="<?php echo SITENAME; ?>"></a>
-  </div>
+  
   <!-- /.login-logo -->
   <div class="login-box-body">
+	    <div class="login-logo">
+	  		<a href="index.php"><img src="dist/img/sitelogo.png" alt="<?php echo SITENAME; ?>"></a>
+  		</div>
     <p class="login-box-msg">Please login to start.</p>
+    
+    
+	<?php 
+		printstatus();
+	?>
 
-    <form action="index.php" method="post">
+    <form method="post">
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email" name="username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -63,7 +63,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" name="login">Login</button>
+          <input type="submit" class="btn btn-primary btn-block btn-flat" name="login" value="Login"></input>
         </div>
         <!-- /.col -->
       </div>

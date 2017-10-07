@@ -1,9 +1,10 @@
+<?php include 'includes/logic.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Lockscreen</title>
+  <title><?php echo SITENAME; ?> | Lockscreen</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -29,26 +30,28 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="index.php"><b>Admin</b>LTE</a>
+    <a href="index.php"><img src="dist/img/sitelogo.png" height="70" style="margin-top: -150px;" alt="<?php echo SITENAME; ?>"></a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">Vijay Goswami</div>
+  <div class="lockscreen-name"><?php echo $_SESSION['login_firstname'] . ' ' . $_SESSION['login_lastname']; ?></div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image">
-      <img src="dist/img/user1-128x128.jpg" alt="User Image">
+      <img src="<?php echo $_SESSION['profilepic']; ?>" alt="<?php echo $_SESSION['login_firstname'] . ' ' . $_SESSION['login_lastname']; ?>">
     </div>
     <!-- /.lockscreen-image -->
 
     <!-- lockscreen credentials (contains the form) -->
-    <form class="lockscreen-credentials">
+    <form class="lockscreen-credentials" method="POST">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="password">
+        <input type="password" class="form-control" placeholder="password" name="lockscreenpass">
 
         <div class="input-group-btn">
-          <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+	        <button type="submit" class="btn" name="resumelogin">
+			    <i class="fa fa-arrow-right text-muted"></i>
+			</button>
         </div>
       </div>
     </form>
@@ -57,7 +60,7 @@
   </div>
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
-    Enter your password to retrieve your session
+    Enter your password to resume your session
   </div>
   <div class="text-center">
     <a href="logout.php">Or sign in as a different user</a>

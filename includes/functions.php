@@ -1,5 +1,20 @@
 <?php 
     require_once ('config.php');
+    
+    //This function is used to echo error or success message.
+    function printstatus() {
+	    global $error, $success;
+	    if (@($error)) {
+		    foreach ($error as $err) {
+			    echo "<div class='alert alert-danger alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>$err</div>";
+		    }
+	    }
+	    if (@($success)) {
+		    foreach ($success as $suc) {
+			    echo "<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>$suc</div>";
+		    }
+	    }
+    }
 
 	//This function is used to generate desired length salt or random number
 	function getsalt($saltlength=8) {
@@ -239,6 +254,9 @@
 		return $age;
 	}
 
-
+	// Admin Panel based functions.
+	function printpic() {
+		
+	}
 
 ?>

@@ -16,8 +16,8 @@
 
 
     //Global Variables
-    $failmsgs = array();
-    $passmsgs = array();
+    $error = array();
+    $success = array();
     
     
 

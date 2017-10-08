@@ -32,24 +32,11 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
-<!--
+
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">HEADER</li>
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="demo.php"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+        <li class="active"><a href="users.php"><i class="fa fa-users"></i> <span>User Management</span></a></li>
       </ul>
--->
+
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

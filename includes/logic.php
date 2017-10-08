@@ -18,9 +18,9 @@
 			    if ($status === 1) {
 				    if ($localhash === $remotehash) {
 					    $_SESSION['login_user'] = $givenusername;
-					    header('Location: profile.php');
+					    header('Location: index.php');
 				    } else {
-					    $error[] = "Your password was incorrect.";
+					    $error[] = 'Your password was incorrect.';
 				    }
 			    } else {
 				    $error[] = 'Your account has been disabled! Please contact administrator.';
@@ -31,7 +31,20 @@
 	    }//if (@($_POST['login']))
 	    
 	    if (@($_POST['resumelogin'])) {
-		    echo "Hello Brother!";
+		    $givenpassword = mysqli_real_escape_string($conn, $_POST['lockscreenpass']);
+		    $cols = array('pwd_hash', 'pwd_salt', 'email', 'ID');
+		    $db->where('ID', $_SESSION['login_id']);
+		    $users = $db->getOne('tblusers', $cols);
+		    $remotehash = $users['pwd_hash'];
+		    $pwdsalt = $users['pwd_salt'];
+		    $localhash = computehash($givenpassword, $pwdsalt);
+		    if ($localhash === $remotehash) {
+			    $_SESSION['login_user'] = $users['email'];
+			    $_SESSION['login_id'] = $users['ID'];
+			    header('Location: index.php');
+		    } else {
+			    $error[] = 'Your password was incorrect.';
+		    }
 	    }
         
     }//if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -55,9 +68,18 @@
 
     //Setting Up Environment Variables
     if (!@($_SESSION['login_user'])) {
-        if ($_SERVER['PHP_SELF'] !== '/login.php') {
-           header ('Location: login.php');
-        }
+	    if (@($_SESSION['login_id'])) {
+/*
+		   if ($_SERVER['PHP_SELF'] !== '/lockscreen.php') {
+		   	header ('Location: lockscreen.php');
+        	}
+*/
+	    } else {
+		   	if ($_SERVER['PHP_SELF'] !== '/login.php') {
+		   	header ('Location: login.php');
+        	}
+	    }
+        
     }else{
        	$db->where('email', $_SESSION['login_user']);
 	   	$details = $db->getOne('tblusers');

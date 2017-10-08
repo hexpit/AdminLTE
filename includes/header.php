@@ -38,6 +38,8 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Custom CSS Styling -->
+  <link rel="stylesheet" href="dist/css/custom.css">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -203,6 +205,7 @@ desired effect
                 <div class="pull-left">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                 </div>
+	                
                 <div class="pull-right">
                   <a href="logout.php" class="btn btn-default btn-flat">Log Out</a>
                 </div>

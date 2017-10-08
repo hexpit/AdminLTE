@@ -1,4 +1,5 @@
 <?php include 'includes/logic.php'; ?>
+<?php unset($_SESSION['login_user']); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,8 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Custom CSS Styling -->
+  <link rel="stylesheet" href="dist/css/custom.css">
 </head>
 <body class="hold-transition lockscreen">
 <!-- Automatic element centering -->
@@ -32,6 +35,9 @@
   <div class="lockscreen-logo">
     <a href="index.php"><img src="dist/img/sitelogo.png" height="70" style="margin-top: -150px;" alt="<?php echo SITENAME; ?>"></a>
   </div>
+  
+  <?php printstatus(); ?>
+  
   <!-- User name -->
   <div class="lockscreen-name"><?php echo $_SESSION['login_firstname'] . ' ' . $_SESSION['login_lastname']; ?></div>
 
@@ -49,9 +55,12 @@
         <input type="password" class="form-control" placeholder="password" name="lockscreenpass">
 
         <div class="input-group-btn">
+<!--
 	        <button type="submit" class="btn" name="resumelogin">
 			    <i class="fa fa-arrow-right text-muted"></i>
 			</button>
+-->
+		<input type="submit" class="btn" name="resumelogin" value="&#xf043; Input">
         </div>
       </div>
     </form>
